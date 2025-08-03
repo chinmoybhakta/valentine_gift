@@ -16,7 +16,7 @@ class _splashState extends State<splash003> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.pinkAccent[100],
+      backgroundColor: Colors.black,
       body: SafeArea(
         child: Center(
           child: Column(

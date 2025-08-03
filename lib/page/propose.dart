@@ -58,7 +58,7 @@ class _ProposeState extends State<Propose> {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>splash002()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Splash002()));
                     },
                     child: Text(
                       "No",
