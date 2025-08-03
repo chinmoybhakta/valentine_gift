@@ -6,7 +6,7 @@ final player = AudioPlayer();
 
 void _playMusic() async {
   await player.setReleaseMode(ReleaseMode.loop); // Loop music
-  await player.play(AssetSource('OREPriya.mp3'));
+  await player.play(AssetSource('Dariye Tomari Sohore.mp3'));
 }
 
 void main() {
