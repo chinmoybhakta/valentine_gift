@@ -1,34 +1,31 @@
 import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project/page/propose.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project/page/valentine.dart';
 
-class splash002 extends StatefulWidget {
-  const splash002({super.key});
+class Splash002 extends StatefulWidget {
+  const Splash002({super.key});
 
   @override
-  State<splash002> createState() => _splashState();
+  State<Splash002> createState() => _SplashState();
 }
 
-class _splashState extends State<splash002> {
+class _SplashState extends State<Splash002> {
   @override
   void initState() {
-    Timer(Duration(seconds: 6), (){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>valentine()));
+    Timer(const Duration(seconds: 6), (){
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const Valentine()));
     });
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.grey[800],
+      backgroundColor: Colors.black,
       body: Center(
         child: CircleAvatar(
-          backgroundImage:AssetImage("assets/tom2.gif"),
-          radius: height*0.2,
+          backgroundImage:const AssetImage("assets/tom2.gif"),
+          radius: 150.r,
         ),
       ),
     );

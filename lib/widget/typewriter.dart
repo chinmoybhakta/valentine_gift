@@ -9,13 +9,13 @@ class TypewriterText extends StatefulWidget {
   final Duration pauseDuration;
 
   const TypewriterText({
-    Key? key,
+    super.key,
     required this.phrases,
-    this.textStyle = const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+    required this.textStyle,
     this.typingSpeed = const Duration(milliseconds: 100),
     this.deleteSpeed = const Duration(milliseconds: 50),
     this.pauseDuration = const Duration(seconds: 1),
-  }) : super(key: key);
+  });
 
   @override
   _TypewriterTextState createState() => _TypewriterTextState();

@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project/page/splash002.dart';
 
 class Propose extends StatefulWidget {
@@ -17,56 +17,59 @@ class Position {
 }
 
 class _ProposeState extends State<Propose> {
-  double yesSize = 30;
-  double noSize = 30;
-  int i = 3;
+  double yesSize = 18.sp;
+  double noSize = 18.sp;
+  int i = 1;
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     Map<int, Position> data = {
-      1: Position(height*0.3, width*0.2),
-      2: Position(height*0.1, 0),
-      3: Position(height*0.004, width*0.6),
-      4: Position(height*0.3, width*0.5),
-      5: Position(height*0.2, width*0.3),
-      6: Position(0, 0),
+      1: Position(20.h, 100.w),
+      2: Position(300.h, 250.w),
+      3: Position(0, 0),
+      4: Position(100.h, 200.w),
+      5: Position(200.h, 10.w),
+      6: Position(40.h, 10.w)
     };
 
     return Scaffold(
-      backgroundColor: Colors.pink[50],
+      backgroundColor: Colors.black,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             CircleAvatar(
-                backgroundImage:AssetImage("assets/jerry.gif"),
-                radius: height*0.1,
+                backgroundImage:const AssetImage("assets/jerry.gif"),
+                radius: 80.r,
             ),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             Text(
               "Are you angry with me?",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.blue, fontSize: 24.sp, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 30),
-            Container(
-              height: height*0.6,
-              width: width*0.9,
+            SizedBox(height: 30.h),
+            SizedBox(
+              height: 400.h,
+              width: 600.w,
               child: Stack(
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>splash002()));
-                    },
-                    child: Text(
-                      "No",
-                      style: TextStyle(fontSize: yesSize),
+                  Positioned(
+                    right: 100.w,
+                    top: 20.h,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const Splash002()));
+                      },
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.white, fixedSize: Size(100.w, 50.h)),
+                      child: Text(
+                        "No",
+                        style: TextStyle(fontSize: yesSize),
+                      ),
                     ),
                   ),
                   AnimatedPositioned(
-                    duration: Duration(milliseconds: 500),
+                    duration: const Duration(milliseconds: 500),
                     curve: Curves.easeInOut,
                     left: data[i]!.y,
                     top: data[i]!.x,
@@ -76,10 +79,10 @@ class _ProposeState extends State<Propose> {
                           i = (i == 6) ? 1 : i + 1;
                         });
                       },
-                      style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.red, fixedSize: Size(100.w, 50.h)),
                       child: AnimatedDefaultTextStyle(
                         style: TextStyle(fontSize: noSize),
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         child: Text("Yes", style: TextStyle(fontSize: noSize),),
                       ),
                     ),

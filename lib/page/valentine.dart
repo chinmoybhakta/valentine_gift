@@ -1,57 +1,57 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:project/page/splash003.dart';
 
-class valentine extends StatefulWidget {
+class Valentine extends StatefulWidget {
+  const Valentine({super.key});
+
   @override
   _ValentineScreenState createState() => _ValentineScreenState();
 }
 
-class _ValentineScreenState extends State<valentine> {
+class _ValentineScreenState extends State<Valentine> {
   bool vanishButton = false;
-  double yesSize = 30;
-  double noSize = 30;
+  double yesSize = 18.r;
+  double noSize = 18.r;
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-
     return Scaffold(
-      backgroundColor: Colors.pink[50],
+      backgroundColor: Colors.black,
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset("assets/tom.gif"),
-            SizedBox(height: 20),
+            SizedBox(height: 20.h),
             Text(
               "Will you be my Valentine?",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold, color: Colors.pink),
               textAlign: TextAlign.center, // Centers text
             ),
-            SizedBox(height: 30),
+            SizedBox(height: 30.h),
             Row(
               mainAxisSize: MainAxisSize.min, // Keeps buttons close together
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context)=> splash003())),
+                  onPressed: ()=> Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const Splash003())),
                   child: Text(
                     "Yes",
                     style: TextStyle(fontSize: yesSize),
                   ),
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 20.h),
                 (vanishButton)
-                    ? SizedBox()
+                    ? const SizedBox()
                     : ElevatedButton(
                   onPressed: () {
                       setState(() {
-                        yesSize += 10;
-                        noSize = (noSize < 10) ? 10 : noSize - 3;
+                        yesSize += 5.sp;
+                        noSize = (noSize < 5.sp) ? 5.sp : noSize - 3.sp;
                         vanishButton =
-                        (yesSize > width * 0.4 || yesSize > height * 0.2);
+                        (yesSize > 150.sp);
                       });
                   },
                   style: ElevatedButton.styleFrom(

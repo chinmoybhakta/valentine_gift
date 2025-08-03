@@ -1,20 +1,19 @@
 import 'dart:async';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project/page/propose.dart';
 
-class splash extends StatefulWidget {
-  const splash({super.key});
+class Splash extends StatefulWidget {
+  const Splash({super.key});
 
   @override
-  State<splash> createState() => _splashState();
+  State<Splash> createState() => _SplashState();
 }
 
-class _splashState extends State<splash> {
+class _SplashState extends State<Splash> {
   @override
   void initState() {
-    Timer(Duration(seconds: 6), (){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>Propose()));
+    Timer(const Duration(seconds: 6), (){
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const Propose()));
     });
     super.initState();
   }
